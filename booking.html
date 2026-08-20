@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Nestora</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Playfair+Display:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Header Wrapper -->
+    <div class="header-wrapper">
+        <header>
+
+            <!-- Logo -->
+            <div class="logo">
+                <a href="#">
+                    <img src="Logo.png" alt="Nestora">
+                    <span>Nestora</span>
+                </a>
+            </div>
+
+            <!-- Navigation -->
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="properties.html">Properties</a></li>
+                    <!-- <li><a href="contact.html">Contact</a></li> -->
+                </ul>
+            </nav>
+
+            <!-- Right -->
+            <div class="right">
+                <button onclick="window.location.href='booking.html'" class="book-btn">Book Now</button>
+            </div>
+
+        </header>
+    </div>
+
+    <!-- Main Body -->
+    <div class="booking-container">
+
+        <h1>Contact Us For Booking</h1>
+
+        <form class="booking-form" id="bookingForm">
+
+            <input type="text" placeholder="Full Name" required>
+
+            <input type="email" placeholder="Email" required>
+
+            <input type="tel" placeholder="Phone Number" pattern="[0-9]{10}" maxlength="10" required>
+
+            <div class="radio-group">
+                <label>
+                    <input type="radio" name="type" value="stay" checked>
+                    Home Stay
+                </label>
+
+                <label>
+                    <input type="radio" name="type" value="sale">
+                    Buy House
+                </label>
+            </div>
+
+            <button type="submit" class="book-btn">Confirm Booking</button>
+
+        </form>
+
+        <!-- SUCCESS MESSAGE -->
+        <p id="successMsg" style="display:none; margin-top:20px;">
+            We will contact you shortly ✅
+        </p>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Nestora | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        const form = document.getElementById("bookingForm");
+        const msg = document.getElementById("successMsg");
+
+        form.addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            const formData = {
+                fullName: form.querySelector('input[type="text"]').value,
+                email: form.querySelector('input[type="email"]').value,
+                phone: form.querySelector('input[type="tel"]').value,
+                type: form.querySelector('input[name="type"]:checked').value
+            };
+
+            try {
+                const response = await fetch("http://localhost:5000/api/bookings", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.ok) {
+                    form.style.display = "none";
+                    msg.style.display = "block";
+                } else {
+                    alert("Something went wrong. Please try again.");
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                alert("Could not connect to server. Make sure the backend is running.");
+            }
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Wishlist | Nestora</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <div class="header-wrapper">
+    <header>
+      <div class="logo"> <a href="#"> <img src="Logo.png"> <span>Nestora</span> </a> </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="properties.html">Properties</a></li>
+        </ul>
+      </nav>
+      <div class="right">
+        <a href="wishlist.html" class="header-icon">♡ <span class="badge" id="wishlistCount">0</span></a>
+        <a href="cart.html" class="header-icon" style="margin-left:14px;">🛒 <span class="badge" id="cartCount">0</span></a>
+        <button onclick="location.href='booking.html'" class="book-btn">Book Now</button>
+      </div>
+    </header>
+  </div>
+
+  <!-- ================= HERO ================= -->
+  <section class="properties-hero">
+    <h1>My Wishlist</h1>
+    <p id="wishlistSubtitle">Properties you've saved for later</p>
+  </section>
+
+  <!-- ================= WISHLIST GRID ================= -->
+  <section class="properties-grid" id="wishlistGrid" style="display:grid;"></section>
+
+  <!-- ================= EMPTY STATE ================= -->
+  <div class="empty-state" id="emptyWishlistMsg">
+    <div class="empty-icon">♡</div>
+    <h3>Your wishlist is empty</h3>
+    <p>Save your favourite stays and homes here to find them easily later.</p>
+    <a href="properties.html" class="btn-primary">Explore Properties</a>
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <p>© 2026 Nestora | All Rights Reserved</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    function renderWishlist() {
+      const grid = document.getElementById("wishlistGrid");
+      const emptyMsg = document.getElementById("emptyWishlistMsg");
+      const subtitle = document.getElementById("wishlistSubtitle");
+      const items = getWishlist();
+
+      grid.innerHTML = "";
+
+      if (items.length === 0) {
+        grid.style.display = "none";
+        emptyMsg.style.display = "flex";
+        subtitle.innerText = "Properties you've saved for later";
+        return;
+      }
+
+      grid.style.display = "grid";
+      emptyMsg.style.display = "none";
+      subtitle.innerText = items.length + (items.length === 1 ? " property saved" : " properties saved");
+
+      items.forEach((item) => {
+        const card = document.createElement("div");
+        card.className = "property-card";
+        card.innerHTML = `
+          <img src="${item.img}">
+          <div class="property-info">
+            <h3>${item.title}</h3>
+            <div class="property-bottom">
+              <span class="price-tag">${item.price}</span>
+              <button class="remove-btn">Remove</button>
+            </div>
+          </div>
+        `;
+        card.querySelector(".remove-btn").addEventListener("click", () => {
+          toggleWishlist(item);
+          renderWishlist();
+        });
+        grid.appendChild(card);
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderWishlist();
+      updateHeaderCounts();
+    });
+  </script>
+
+</body>
+</html>

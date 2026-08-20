@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Cart | Nestora</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <div class="header-wrapper">
+    <header>
+      <div class="logo"> <a href="#"> <img src="Logo.png"> <span>Nestora</span> </a> </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="properties.html">Properties</a></li>
+        </ul>
+      </nav>
+      <div class="right">
+        <a href="wishlist.html" class="header-icon">♡ <span class="badge" id="wishlistCount">0</span></a>
+        <a href="cart.html" class="header-icon" style="margin-left:14px;">🛒 <span class="badge" id="cartCount">0</span></a>
+        <button onclick="location.href='booking.html'" class="book-btn">Book Now</button>
+      </div>
+    </header>
+  </div>
+
+  <!-- ================= HERO ================= -->
+  <section class="properties-hero">
+    <h1>My Cart</h1>
+    <p id="cartSubtitle">Properties you're interested in booking</p>
+  </section>
+
+  <!-- ================= CART GRID ================= -->
+  <section class="properties-grid" id="cartGrid" style="display:grid;"></section>
+
+  <!-- ================= EMPTY STATE ================= -->
+  <div class="empty-state" id="emptyCartMsg">
+    <div class="empty-icon">🛒</div>
+    <h3>Your cart is empty</h3>
+    <p>Add properties you're interested in enquiring about, then book them all at once.</p>
+    <a href="properties.html" class="btn-primary">Explore Properties</a>
+  </div>
+
+  <!-- ================= ACTIONS ================= -->
+  <div class="cart-actions" id="cartActions">
+    <button class="btn-primary" style="border:none; cursor:pointer;" onclick="location.href='booking.html'">Proceed to Booking →</button>
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <p>© 2026 Nestora | All Rights Reserved</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    function renderCart() {
+      const grid = document.getElementById("cartGrid");
+      const emptyMsg = document.getElementById("emptyCartMsg");
+      const actions = document.getElementById("cartActions");
+      const subtitle = document.getElementById("cartSubtitle");
+      const items = getCart();
+
+      grid.innerHTML = "";
+
+      if (items.length === 0) {
+        grid.style.display = "none";
+        emptyMsg.style.display = "flex";
+        actions.style.display = "none";
+        subtitle.innerText = "Properties you're interested in booking";
+        return;
+      }
+
+      grid.style.display = "grid";
+      emptyMsg.style.display = "none";
+      actions.style.display = "block";
+      subtitle.innerText = items.length + (items.length === 1 ? " property in cart" : " properties in cart");
+
+      items.forEach((item, index) => {
+        const card = document.createElement("div");
+        card.className = "property-card";
+        card.innerHTML = `
+          <img src="${item.img}">
+          <div class="property-info">
+            <h3>${item.title}</h3>
+            <div class="property-bottom">
+              <span class="price-tag">${item.price}</span>
+              <button class="remove-btn">Remove</button>
+            </div>
+          </div>
+        `;
+        card.querySelector(".remove-btn").addEventListener("click", () => {
+          removeFromCart(index);
+          renderCart();
+        });
+        grid.appendChild(card);
+      });
+    }
+
+    function removeFromCart(index) {
+      let cart = getCart();
+      cart.splice(index, 1);
+      localStorage.setItem("nestora_cart", JSON.stringify(cart));
+      updateHeaderCounts();
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      renderCart();
+      updateHeaderCounts();
+    });
+  </script>
+
+</body>
+</html>

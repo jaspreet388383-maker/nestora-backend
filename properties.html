@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Properties | Nestora</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body> <!-- ================= HEADER ================= -->
+  <div class="header-wrapper">
+    <header>
+      <div class="logo"> <a href="#"> <img src="Logo.png"> <span>Nestora</span> </a> </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="properties.html">Properties</a></li>
+          <!-- <li><a href="contact.html">Contact</a></li> -->
+        </ul>
+      </nav>
+      <div class="right">
+        <a href="wishlist.html" class="header-icon">♡ <span class="badge" id="wishlistCount">0</span></a>
+        <a href="cart.html" class="header-icon" style="margin-left:14px;">🛒 <span class="badge" id="cartCount">0</span></a>
+        <button onclick="location.href='booking.html'" class="book-btn">Book Now</button>
+      </div>
+
+    </header>
+  </div>
+
+  <!-- ================= HERO ================= -->
+  <section class="properties-hero">
+    <h1>Explore Properties</h1>
+    <p>Find stays or buy your dream home</p>
+  </section>
+
+  <!-- ================= TOGGLE ================= -->
+  <div class="property-toggle"> <button class="toggle-btn active">Home Stays</button> <button class="toggle-btn"> Buy House</button> </div>
+
+
+  <div class="filter-container">
+
+    <!-- House Stay Filters -->
+    <div class="filters stays-filter">
+      <select id="stayFilter">
+        <option disabled selected value="location">Stays</option>
+        <option value="all">All</option>
+        <option value="pahadi">Pahadi</option>
+        <option value="mud">Mud</option>
+        <option value="village">Village</option>
+        <option value="desert">Desert</option>
+      </select>
+    </div>
+
+    <!-- House Sale Filters -->
+    <div class="filters sale-filter">
+      <select id="saleFilter">
+        <option disabled selected value="location">Location</option>
+        <option value="all">All</option>
+        <option value="amritsar">Amritsar</option>
+        <option value="banglore">Banglore</option>
+        <option value="hyderabad">Hyderabad</option>
+        <option value="mumbai">Mumbai</option>
+        <option value="pune">Pune</option>
+        <option value="jaipur">Jaipur</option>
+        <option value="chandigarh">Chandigarh</option>
+        <option value="delhi">Delhi</option>
+      </select>
+    </div>
+
+    <!-- ================= HOME STAYS ================= -->
+    <section class="properties-grid stays">
+
+      <!-- PAHADI -->
+      <div class="property-card" data-type="pahadi">
+        <img src="Pahadi.jpeg">
+        <div class="property-info">
+          <h3>Jammu Home Stay</h3>
+          <div class="property-bottom">
+            <button onclick="location.href='booking.html'" class="book-btn">Enquire Now</button>
+            <span>₹1500 / night</span>
+            <span>⭐ 4.8</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="property-card" data-type="pahadi">
+        <img src="Pahadi2.jpeg">
+        <div class="property-info">
+          <h3>Manali Home Stay</h3>
+          <div class="property-bottom">
+            <button onclick="location.href='booking.html'" class="book-btn">Enquire Now</button>
+            <span>₹1500 / night</span>
+            <span>⭐ 4.7</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="property-card" data-type="pahadi">
+        <img src="Pahadi3.jpeg">
+        <div class="property-info">
+          <h3>Dehradun Home Stay</h3>
+          <div class="property-bottom">
+            <button onclick="location.href='booking.html'" class="book-btn">Enquire Now</button>
+            <span>₹1500 / night</span>
+            <span>⭐ 4.7</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="property-card" data-type="pahadi">
+        <img src="Pahadi4.jpeg">
+        <div class="property-info">
+          <h3>Mandi Home Stay</h3>
+          <div class="property-bottom">
+            <button onclick="location.href='booking.html'" class="book-btn">Enquire Now</button>
+            <span>₹1500 / night</span>
+            <span>⭐ 4.7</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- VILLAGE -->
+      <div class="property-card" data-type="village">
+        <img src="Village.jpeg">
+        <div class="property-info">
+          <h3>Malana Home Stay</h3>
+          <div class="property-bottom">
+            <button onclick="location.href='booking.html'" class="book-btn">Enquire Now</button>
+            <span>₹1500 / night</span>
+            <span>⭐ 4.6</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="property-card" data-type="village">
+        <img src="Village1.jpeg">
+        <div class="property-info">
+          <h3>Kibber Home Stay</h3>
+          <div class="property-bottom">
+            <button onclick="location.href='booking.html'" class="book-btn">Enquire Now</button>
+            <span>₹1500 / night</span>
+            <span>⭐ 4.5</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="property-card" data-type="village">
+        <img src="Village2.jpeg">
+        <div class="property-info">
+          <h3>Ziro Home Stay</h3>
+          <div class="property-bottom">
+            <button onclick="location.href='booking.html'" class="book-btn">Enquire Now</button>
+            <span>₹1500 / night</span>
+            <span>⭐ 4.5</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="property-card" data-type="village">
+        <img src="Village3.jpeg">
+        <div class="property-info">
+          <h3>Khonoma Home Stay</h3>
+          <div class="property-bottom">
+            <button onclick="location.href='booking.html'" class="book-btn">Enquire Now</button>
+            <span>₹1500 / night</span>
+            <span>⭐ 4.5</span>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- DESERT -->
+      <div class="property-card" data-type="desert">
+        <img src="Desert.jpeg">
+        <div class="property-info">
+          <h3>Barmer Desert Stay</h3>
+          <div class="property-bottom">
+            <button onclick="location.href='booking.html'" class="book-btn">Enquire Now</button>
+            <span>₹3200 / night</span>
+            <span>⭐ 4.7</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="property-card" data-type="desert">
+        <img src="Desert1.jpeg">
+        <div class="property-info">
+          <h3>Bikaner Desert Stay</h3>
+          <div class="property-bottom">
+            <button onclick="location.href='booking.html'" class="book-btn">Enquire Now</button>
+            <span>₹3500 / night</span>
+            <span>⭐ 4.8</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="property-card" data-type="desert">
+        <img src="Desert2.jpeg">
+        <div class="property-info">
+          <h3>Jaisalmer Desert Stay</h3>
+          <div class="property-bottom">
+            <button onclick="location.href='booking.html'" class="book-btn">Enquire Now</button>
+            <span>₹3500 / night</span>
+            <span>⭐ 4.8</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- MUD -->
+      <div class="property-card" data-type="mud">
+        <img src="Mud.jpeg">
+        <div class="property-info">
+          <h3>Hodka Mud House</h3>
+          <div class="property-bottom">
+            <button onclick="location.href='booking.html'" class="book-btn">Enquire Now</button>
+            <span>₹2000 / night</span>
+            <span>⭐ 4.5</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="property-card" data-type="mud">
+        <img src="Mud1.jpeg">
+        <div class="property-info">
+          <h3>Dhordo Clay House</h3>
+          <div class="property-bottom">
+            <button onclick="location.href='booking.html'" class="book-btn">Enquire Now</button>
+            <span>₹2200 / night</span>
+            <span>⭐ 4.6</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="property-card" data-type="mud">
+        <img src="Mud2.jpeg">
+        <div class="property-info">
+          <h3>Bastar Mud House</h3>
+          <div class="property-bottom">
+            <button onclick="location.href='booking.html'" class="book-btn">Enquire Now</button>
+            <span>₹2200 / night</span>
+            <span>⭐ 4.6</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="property-card" data-type="mud">
+        <img src="Mud3.jpeg">
+        <div class="property-info">
+          <h3>Kutch Clay Cottage</h3>
+          <div class="property-bottom">
+            <button onclick="location.href='booking.html'" class="book-btn">Enquire Now</button>
+            <span>₹2200 / night</span>
+            <span>⭐ 4.6</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ================= HOUSE SALE ================= -->
+    <section class="properties-grid sale">
+
+      <div class="property-card" data-city="amritsar">
+        <img src="Amritsar1.jpg">
+        <div class="property-info">
+          <h3>Amritsar</h3>
+          <div class="property-bottom">
+            <button onclick="location.href='booking.html'" class="book-btn">Enquire Now</button>
+            <span>₹85 Lakhs</span>
+            <span>3 BHK</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="property-card" data-city="delhi">
+        <img src="Delhi.jpg">
+        <div class="property-info">
+          <h3>Delhi</h3>
+          <div class="property-bottom">
+            <button onclick="location.href='booking.html'" class="book-btn">Enquire Now</button>
+            <span>₹85 Lakhs</span>
+            <span>3 BHK</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="property-card" data-city="mumbai">
+        <img src="Mumbai.jpg">
+        <div class="property-info">
+          <h3>Mumbai</h3>
+          <div class="property-bottom">
+            <button onclick="location.href='booking.html'" class="book-btn">Enquire Now</button>
+            <span>₹85 Lakhs</span>
+            <span>3 BHK</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="property-card" data-city="bangalore">
+        <img src="Banglore.jpeg">
+        <div class="property-info">
+          <h3>Bangalore</h3>
+          <div class="property-bottom">
+            <button onclick="location.href='booking.html'" class="book-btn">Enquire Now</button>
+            <span>₹85 Lakhs</span>
+            <span>3 BHK</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="property-card" data-city="amritsar">
+        <img src="Amritsar2.jpg">
+        <div class="property-info">
+          <h3>Amritsar</h3>
+          <div class="property-bottom">
+            <button onclick="location.href='booking.html'" class="book-btn">Enquire Now</button>
+            <span>₹85 Lakhs</span>
+            <span>3 BHK</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="property-card" data-city="hyderabad">
+        <img src="Hyderabad.jpg">
+        <div class="property-info">
+          <h3>Hyderabad</h3>
+          <div class="property-bottom">
+            <button onclick="location.href='booking.html'" class="book-btn">Enquire Now</button>
+            <span>₹85 Lakhs</span>
+            <span>3 BHK</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="property-card" data-city="pune">
+        <img src="Pune.jpeg">
+        <div class="property-info">
+          <h3>Pune</h3>
+          <div class="property-bottom">
+            <button onclick="location.href='booking.html'" class="book-btn">Enquire Now</button>
+            <span>₹85 Lakhs</span>
+            <span>3 BHK</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="property-card" data-city="chandigarh">
+        <img src="Chandigarh.jpg">
+        <div class="property-info">
+          <h3>Chandigarh</h3>
+          <div class="property-bottom">
+            <button onclick="location.href='booking.html'" class="book-btn">Enquire Now</button>
+            <span>₹85 Lakhs</span>
+            <span>3 BHK</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="property-card" data-city="jaipur">
+        <img src="Jaipur.jpg">
+        <div class="property-info">
+          <h3>Jaipur</h3>
+          <div class="property-bottom">
+            <button onclick="location.href='booking.html'" class="book-btn">Enquire Now</button>
+            <span>₹85 Lakhs</span>
+            <span>3 BHK</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+      <p>© 2026 Nestora | All Rights Reserved</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
