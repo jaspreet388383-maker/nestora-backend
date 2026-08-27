@@ -32,24 +32,23 @@ header {
 .logo a {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0px;
   text-decoration: none;
 }
 
 .logo img {
-  height: 200px;
-  width: auto;
-  object-fit: cover;
-  position: absolute;
-  left: 100px;
+  height: 60px;
+  width: 60px;
+  object-fit: contain;
+  margin-right: -18px;
 }
 
 .logo span {
-  margin-left: 150px;
   font-family: 'Poppins', serif;
   font-weight: 900;
-  font-size: 25px;
+  font-size: 22px;
   color: #3E2C23;
+  white-space: nowrap;
 }
 
 nav {
